@@ -9,68 +9,14 @@ const getCookieString = () =>
 
 // Headers for Layabout API (course structure)
 const getLayaboutHeaders = () => ({
-  accept: "*/*",
-  "accept-language": "en-US,en;q=0.9,te;q=0.8",
-  cookie: getCookieString(),
-  dnt: "1",
-  newrelic:
-    "eyJ2IjpbMCwxXSwiZCI6eyJ0eSI6IkJyb3dzZXIiLCJhYyI6IjQxMDI3MjciLCJhcCI6IjExMDMzNjg0MzIiLCJpZCI6ImIzMzhlZTM3MDczNGYxZDgiLCJ0ciI6ImYwMmQ0ZWZlNTY4NDE3OTU4Zjk2OGJlN2JkZWJjMmU5IiwidGkiOjE3NTU4OTIzOTg2NzIsInRrIjoiMjc1MDMifX0=",
-  priority: "u=1, i",
-  "sec-ch-ua":
-    '"Not)A;Brand";v="8", "Chromium";v="138", "Google Chrome";v="138"',
-  "sec-ch-ua-mobile": "?0",
-  "sec-ch-ua-platform": '"Windows"',
-  "sec-fetch-dest": "empty",
-  "sec-fetch-mode": "cors",
-  "sec-fetch-site": "same-origin",
-  traceparent: "00-04d6a873baac21f1a78fee624d384053-c9613fb5fa37b1f0-01",
-  tracestate:
-    "27503@nr=0-1-4102727-1103368432-c9613fb5fa37b1f0----1755888789080",
-  "user-agent":
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
 });
 
 // Headers for HTML pages
 const getHeaders = () => ({
-  accept:
-    "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-  "accept-language": "en-US,en;q=0.9,te;q=0.8",
-  cookie: getCookieString(),
-  "sec-ch-ua":
-    '"Not)A;Brand";v="8", "Chromium";v="138", "Google Chrome";v="138"',
-  "sec-ch-ua-mobile": "?0",
-  "sec-ch-ua-platform": '"Windows"',
-  "sec-fetch-dest": "document",
-  "sec-fetch-mode": "navigate",
-  "sec-fetch-site": "same-origin",
-  "user-agent":
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
 });
 
 // Headers for private video API
-const getApiHeaders = () => ({
-  accept: "application/json, text/plain, */*",
-  "accept-language": "en-US,en;q=0.9,te;q=0.8",
-  cookie: getCookieString(),
-  dnt: "1",
-  "if-none-match": 'W/"c6870c162baa4ad38ce839d48f030244"',
-  newrelic:
-    "eyJ2IjpbMCwxXSwiZCI6eyJ0eSI6IkJyb3dzZXIiLCJhYyI6IjQxMDI3MjciLCJhcCI6IjExMDMzNjg0MzIiLCJpZCI6ImRiZDU4ZDU0MWIxMzIyNTkiLCJ0ciI6IjM1M2Y0NzU1Y2E1YTljOGU3MGIzNDNkMzdjZTM4NTE5IiwidGkiOjE3NTU4ODg4ODcxNDksInRrIjoiMjc1MDMifX0=",
-  priority: "u=1, i",
-  "sec-ch-ua":
-    '"Not)A;Brand";v="8", "Chromium";v="138", "Google Chrome";v="138"',
-  "sec-ch-ua-mobile": "?0",
-  "sec-ch-ua-platform": '"Windows"',
-  "sec-fetch-dest": "empty",
-  "sec-fetch-mode": "cors",
-  "sec-fetch-site": "same-origin",
-  traceparent: "00-353f4755ca5a9c8e70b343d37ce38519-dbd58d541b132259-01",
-  tracestate:
-    "27503@nr=0-1-4102727-1103368432-dbd58d541b132259----1755888887149",
-  "user-agent":
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-  "x-newrelic-id": "UAcHU1FRDxABVFdXBwcHUVQA",
-});
+const getApiHeaders = () => ({});
 
 // Step 1: Get course structure from Layabout API
 async function fetchCourseStructure(courseId) {
@@ -328,27 +274,6 @@ async function downloadVideo(videoUrl, filename, outputDir) {
     const response = await axios.get(videoUrl, {
       responseType: "stream",
       headers: {
-        accept: "application/json, text/plain, */*",
-        "accept-language": "en-US,en;q=0.9,te;q=0.8",
-        cookie: getCookieString(),
-        dnt: "1",
-        "if-none-match": 'W/"c6870c162baa4ad38ce839d48f030244"',
-        newrelic:
-          "eyJ2IjpbMCwxXSwiZCI6eyJ0eSI6IkJyb3dzZXIiLCJhYyI6IjQxMDI3MjciLCJhcCI6IjExMDMzNjg0MzIiLCJpZCI6ImRiZDU4ZDU0MWIxMzIyNTkiLCJ0ciI6IjM1M2Y0NzU1Y2E1YTljOGU3MGIzNDNkMzdjZTM4NTE5IiwidGkiOjE3NTU4ODg4ODcxNDksInRrIjoiMjc1MDMifX0=",
-        priority: "u=1, i",
-        "sec-ch-ua":
-          '"Not)A;Brand";v="8", "Chromium";v="138", "Google Chrome";v="138"',
-        "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": '"Windows"',
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "same-origin",
-        traceparent: "00-353f4755ca5a9c8e70b343d37ce38519-dbd58d541b132259-01",
-        tracestate:
-          "27503@nr=0-1-4102727-1103368432-dbd58d541b132259----1755888887149",
-        "user-agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "x-newrelic-id": "UAcHU1FRDxABVFdXBwcHUVQA",
       },
     });
 
